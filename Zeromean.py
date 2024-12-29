@@ -56,7 +56,7 @@ def visualize_gp_belief(model, likelihood):
             color='black', fontsize=10
         )
 
-    ax.set_title("GP Regression (Linearmean)", fontsize=16)
+    ax.set_title("GP Regression (Zero mean)", fontsize=16)
     ax.set_xlabel('X1', fontsize=12)
     ax.set_ylabel('X2', fontsize=12)
     ax.set_zlabel('Predicted y', fontsize=12)
