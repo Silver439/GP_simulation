@@ -67,3 +67,26 @@
 * GPytorch在用GP建模时似乎会固定长度尺度参数(1.0)，使得模型在数据稀疏时看上去过于平坦
 * 观测点数量相对搜索空间太少，在没有观测的地区，先验均值函数是模型推理的主要驱动力。模型所能做的最好的事情就只能是简单地呈现均值函数中的先验知识，并没有太高的参考价值。
 * RBF的函数形状看起来要更自然一些，但总是在边缘取到最优值
+
+### 补充：
+* 更改长度尺度参数后(100)的部分图像如下所示：
+
+#### Constant
+<p float="center">
+<img src="pics\Constant\2D(100).png" width="500"/>
+<img src="pics\Constant\3D(100).png" width="500"/>
+</p>
+
+#### Constant
+<p float="center">
+<img src="pics\Linear\2D(100).png" width="500"/>
+<img src="pics\Linear\3D(100).png" width="500"/>
+</p>
+
+#### Quadratic
+<p float="center">
+<img src="pics\Quadratic\2D(100).png" width="500"/>
+<img src="pics\Quadratic\3D(100).png" width="500"/>
+</p>
+
+* 均值函数为2次时还是会出现严重的数值问题

@@ -116,7 +116,7 @@ class ConstantMeanGPModel(gpytorch.models.ExactGP):
         return gpytorch.distributions.MultivariateNormal(mean_x, covar_x)
     
 # declare the GP
-lengthscale = 1
+lengthscale = 50
 noise = 1e-4
 
 likelihood = gpytorch.likelihoods.GaussianLikelihood()
