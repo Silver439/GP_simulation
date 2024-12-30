@@ -40,16 +40,16 @@ class ConstantMeanGPModel(gpytorch.models.ExactGP):
         covar_x = self.covar_module(x)
         return gpytorch.distributions.MultivariateNormal(mean_x, covar_x)
     
-# declare the GP
+
 noise = 1e-4
 
 likelihood = gpytorch.likelihoods.GaussianLikelihood()
 model = ConstantMeanGPModel(train_x, train_y, likelihood)
 
-# fix the hyperparameters
+
 model.likelihood.noise = noise
 
-# train the hyperparameter (the constant)
+
 optimizer = torch.optim.Adam(model.parameters(), lr=0.1)
 mll = gpytorch.mlls.ExactMarginalLogLikelihood(likelihood, model)
 

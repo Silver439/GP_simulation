@@ -42,16 +42,14 @@ class LinearMeanGPModel(gpytorch.models.ExactGP):
         covar_x = self.covar_module(x)
         return gpytorch.distributions.MultivariateNormal(mean_x, covar_x)
     
-# declare the GP
 noise = 1e-4
 
 likelihood = gpytorch.likelihoods.GaussianLikelihood()
 model = LinearMeanGPModel(train_x, train_y, likelihood)
 
-# fix the hyperparameters
+
 model.likelihood.noise = noise
 
-# train the hyperparameter (the constant)
 optimizer = torch.optim.Adam(model.parameters(), lr=0.1)
 mll = gpytorch.mlls.ExactMarginalLogLikelihood(likelihood, model)
 
@@ -83,10 +81,10 @@ fig, ax = plt.subplots(1, 3, figsize=(8, 2))
 ax[0].plot(losses)
 ax[0].set_ylabel("negative marginal log likelihood")
 
-# 提取每个维度的权重
-weights = np.array([w for w in weights])  # 将 weights 转为 NumPy 数组，确保它是二维数组
-ax[1].plot(weights[:, 0], label="Weight 1")  # 绘制第一个维度的权重
-ax[1].plot(weights[:, 1], label="Weight 2")  # 绘制第二个维度的权重
+
+weights = np.array([w for w in weights])  
+ax[1].plot(weights[:, 0], label="Weight 1")  
+ax[1].plot(weights[:, 1], label="Weight 2") 
 ax[1].set_ylabel("weights")
 ax[1].legend()
 

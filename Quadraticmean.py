@@ -82,16 +82,16 @@ class QuadraticMeanGPModel(gpytorch.models.ExactGP):
         covar_x = self.covar_module(x)
         return gpytorch.distributions.MultivariateNormal(mean_x, covar_x)
     
-# declare the GP
+
 noise = 1e-4
 
 likelihood = gpytorch.likelihoods.GaussianLikelihood()
 model = QuadraticMeanGPModel(train_x, train_y, likelihood)
 
-# fix the hyperparameters
+
 model.likelihood.noise = noise
 
-# train the hyperparameter (the constant)
+
 optimizer = torch.optim.Adam(model.parameters(), lr=0.1)
 mll = gpytorch.mlls.ExactMarginalLogLikelihood(likelihood, model)
 
@@ -131,13 +131,13 @@ fig, ax = plt.subplots(1, 5, figsize=(16, 4))
 ax[0].plot(losses)
 ax[0].set_ylabel("negative marginal log likelihood")
 
-ax[1].plot(second0s, label="second 0")  # 绘制第一个维度的权重
-ax[1].plot(second1s, label="second 1")  # 绘制第二个维度的权重
+ax[1].plot(second0s, label="second 0")  
+ax[1].plot(second1s, label="second 1")  
 ax[1].set_ylabel("seconds")
 ax[1].legend()
 
-ax[2].plot(first0s, label="first 0")  # 绘制第一个维度的权重
-ax[2].plot(first1s, label="first 1")  # 绘制第二个维度的权重
+ax[2].plot(first0s, label="first 0")  
+ax[2].plot(first1s, label="first 1")  
 ax[2].set_ylabel("firsts")
 ax[2].legend()
 

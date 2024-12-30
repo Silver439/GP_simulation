@@ -36,7 +36,7 @@ def visualize_gp_belief(model, likelihood, train_x, train_y, X1, X2, xs):
     fig.colorbar(surf, ax=ax, shrink=0.6, aspect=6)
 
     plt.show()
-    plt.close(fig)  # 清理绘图状态
+    plt.close(fig)  
 
 
 def visualize_2d_contour(model, likelihood, train_x, train_y, X1, X2, xs):
@@ -75,4 +75,4 @@ def visualize_2d_contour(model, likelihood, train_x, train_y, X1, X2, xs):
     plt.tight_layout()
 
     plt.show()
-    plt.close(fig)  # 清理绘图状态
+    plt.close(fig)  
