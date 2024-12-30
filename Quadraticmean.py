@@ -82,7 +82,7 @@ class QuadraticMeanGPModel(gpytorch.models.ExactGP):
         covar_x = self.covar_module(x)
         return gpytorch.distributions.MultivariateNormal(mean_x, covar_x)
     
-
+lenthscale = torch.tensor([6.3, 63.0]) ##############给定长度尺度的先验数值
 noise = 1e-4
 
 likelihood = gpytorch.likelihoods.GaussianLikelihood()
@@ -90,7 +90,7 @@ model = QuadraticMeanGPModel(train_x, train_y, likelihood)
 
 
 model.likelihood.noise = noise
-
+model.covar_module.base_kernel.lengthscale = lenthscale ###############
 
 optimizer = torch.optim.Adam(model.parameters(), lr=0.1)
 mll = gpytorch.mlls.ExactMarginalLogLikelihood(likelihood, model)
