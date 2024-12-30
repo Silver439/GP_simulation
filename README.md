@@ -5,7 +5,7 @@
 <img src="pics\Zero\3D.png" width="500"/>
 </p>
 
-* GP核函数默认采用Matern2.5
+* GP核函数默认采用RBF kernel
 * 二维图像中红色五角星标注的位置是模型的预测最优值所在位置
 * 未知区域函数值基本全是0
 
