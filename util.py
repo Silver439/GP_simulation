@@ -44,11 +44,9 @@ def visualize_gp_belief(name, model, likelihood, train_x, train_y, X1, X2, xs):
     plt.close(fig)  
 
 
-def visualize_2d_contour(name, model, likelihood, train_x, X1, X2, xs):
+def visualize_2d_contour(name, predictive_distribution, train_x, X1, X2, xs, suggest_x):
 
-    with torch.no_grad():
-        predictive_distribution = likelihood(model(xs))
-        predictive_mean = predictive_distribution.mean
+    predictive_mean = predictive_distribution.mean
 
     predictive_mean_reshaped = predictive_mean.reshape(X1.shape).detach().numpy()
     min_value = predictive_mean_reshaped.min()
@@ -67,6 +65,7 @@ def visualize_2d_contour(name, model, likelihood, train_x, X1, X2, xs):
             f"({train_x[i, 0]:.0f}, {train_x[i, 1]:.0f})", fontsize=8
         )
 
+    ax.scatter(suggest_x[:, 0], suggest_x[:, 1], color="orange", marker="o", label="Suggest Points")
     ax.scatter(min_x1, min_x2, color="red", marker="*", s=200, label="Min Value")
     ax.text(
         min_x1, min_x2, 
