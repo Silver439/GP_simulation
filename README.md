@@ -8,7 +8,7 @@
 <img src="pics\Linear\3D.png" width="500"/>
 </p>
 
-* 左图为模型的二维地形图，橙色点为推荐点的位置。右图是模型的三维示意图。
+* 第一幅图为模型的二维地形图，橙色点为推荐点的位置。图二是模型的三维示意图。
 * 模型的各参数收敛曲线如下：
 
 <p float="center">
@@ -56,7 +56,7 @@
 <p float="center">
  <img src="pics\Quadratic\Curves.png" width="800"/>
  </p>
-* 其中second代表两个二次项的系数，first代表两个一次项系数。mutual是乘积交互项系数。
+* 其中seconds代表两个二次项的系数，firsts代表两个一次项系数。mutual是乘积交互项系数。
 
 ### 推荐点集(By Thompson sampling)：
 
